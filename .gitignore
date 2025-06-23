@@ -9,3 +9,8 @@ generated_keys/mickey2_key.txt
 IMG_3167_permutation_encrypted.JPG
 smth.txt
 smth_permutation_encrypted.txt
+dist/crypto-toolkit/bin/libchacha20.dylib
+dist/crypto-toolkit/bin/libmickey2.dylib
+dist/crypto-toolkit/bin/libpermutations.dylib
+dist/crypto-toolkit-macos-arm64.tar.gz
+dist/crypto-toolkit/crypto_app

@@ -9,7 +9,7 @@ OBJS := $(SRCS:.cpp=.o)
 EXEC := bin/crypto_app
 DYLIB := bin/librgrcrypto.dylib
 
-.PHONY: all run clean lib libs
+.PHONY: all run clean lib libs dist
 
 # Собирает всё (и исполняемый файл, и библиотеку, и отдельные dylib)
 all: $(EXEC) $(DYLIB) bin/libmickey2.dylib bin/libchacha20.dylib bin/libpermutations.dylib
@@ -58,3 +58,16 @@ libs: bin/libmickey2.dylib bin/libchacha20.dylib bin/libpermutations.dylib
 clean:
 	@echo "Очистка проекта..."
 	@rm -rf $(OBJS) $(EXEC) $(DYLIB)
+
+dist: all
+	@echo "--- Создание дистрибутива для macOS ---"
+	@# Создаем временную структуру
+	@mkdir -p dist/crypto-toolkit/bin
+	@# Копируем файлы
+	@cp $(EXEC) dist/crypto-toolkit/
+	@cp bin/*.dylib dist/crypto-toolkit/bin/
+	@# Создаем архив
+	@cd dist && tar -czf crypto-toolkit-macos-$(shell uname -m).tar.gz crypto-toolkit
+	@# Очищаем временную папку
+	@rm -rf dist/crypto-toolkit
+	@echo "--- Архив готов: dist/crypto-toolkit-macos-$(shell uname -m).tar.gz ---"
