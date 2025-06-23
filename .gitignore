@@ -1,1 +1,11 @@
 .DS_Store
+.vscode/settings.json
+bin/libchacha20.dylib
+bin/libmickey2.dylib
+bin/libpermutations.dylib
+generated_keys/permutations_key.txt
+generated_keys/chacha20_key.txt
+generated_keys/mickey2_key.txt
+IMG_3167_permutation_encrypted.JPG
+smth.txt
+smth_permutation_encrypted.txt

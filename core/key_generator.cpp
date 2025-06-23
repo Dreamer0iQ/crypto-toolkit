@@ -25,19 +25,19 @@ string generateMickey2Key() {
     return key + ":" + iv;
 }
 
-string generatePermutationKey() {
+string generatePermutationsKey() {
     // Количество перестановок от 100 до 10000
     int n = rand() % 9901 + 100; // [100, 10000]
     return to_string(n);
 }
 
-string generatePermutationsKey() {
+string generatePermutationKey() {
     wstring russianCharset = 
         L"АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
         L"абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
     shuffle(russianCharset.begin(), russianCharset.end(), default_random_engine(random_device{}()));
 
-    int keyLength = rand() % 9001 + 1000;
+    int keyLength = rand() % 25 + 24;
 
     wstring wkey = russianCharset.substr(0, keyLength);
 
